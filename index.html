@@ -64,18 +64,20 @@
     }
 
     .video-container {
-      margin: 30px 0;
+      position: relative;
       width: 100%;
-      height: 400px;
+      aspect-ratio: 16 / 9;
       border: 1px solid #00ff00;
       border-radius: 8px;
       box-shadow: 0 0 15px #00ff00;
       background-color: #000;
+      overflow: hidden;
     }
 
     .video-container video {
       width: 100%;
       height: 100%;
+      object-fit: cover;
       border-radius: 8px;
       background-color: #000;
     }
@@ -86,3 +88,71 @@
       height: 600px;
       border: 1px solid #00ff00;
       border-radius: 8px;
+      box-shadow: 0 0 20px #00ff00;
+      background-color: #000;
+    }
+
+    .iframe-description {
+      margin-top: 20px;
+      font-size: 1.2em;
+      text-align: center;
+    }
+
+    .section-title {
+      color: #ffffff;
+      font-family: 'Roboto', sans-serif;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 0 0 5px #00ff00;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 40px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 10px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.8em;
+      color: #ccc;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">Castro</div>
+
+  <header>
+    <h1>METODO DO MINES.</h1>
+  </header>
+
+  <section>
+    <div class="video-container">
+      <video controls>
+        <source src="video.mp4" type="video/mp4" />
+        Seu navegador não suporta a tag de vídeo.
+      </video>
+    </div>
+
+    <h2 class="section-title">JOGUE DIRETAMENTE AQUI</h2>
+
+    <iframe src="https://brbetwin.net/ymqilhbaf" title="Cassino Online" allowfullscreen></iframe>
+
+    <div class="iframe-description">
+      <strong style="color: #ffffff; font-family: 'Roboto', sans-serif;">
+        Jogue agora usando o Método do Mines e maximize seus lucros!
+      </strong>
+    </div>
+  </section>
+
+  <footer>
+    <p>Site feito pelo <strong>Fantasma</strong>. Todos os direitos autorais reservados.</p>
+    <p style="font-size: 0.75em; color: #aaa;">
+      Adquira o seu em <strong>14998354759</strong>
+    </p>
+  </footer>
+</body>
+</html>
