@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" >
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,10 +8,10 @@
   <style>
     /* Painel menor */
     #top-panel > div {
-      padding: 0.5rem 1rem; /* menos padding */
+      padding: 0.5rem 1rem;
     }
     #top-panel p {
-      font-size: 0.85rem; /* fonte menor */
+      font-size: 0.85rem;
       margin: 0;
     }
     #top-panel p#timer {
@@ -44,15 +44,15 @@
     </div>
   </div>
 
-  <!-- Grade de minas menor -->
+  <!-- Grade de minas -->
   <div id="grid" class="grid grid-cols-5 gap-1 mb-4 max-w-md"></div>
 
-  <!-- Botão menor -->
+  <!-- Botão -->
   <button id="gerarSinal" class="bg-blue-800 text-white font-bold rounded shadow-lg hover:bg-blue-900 transition">
     🔍 Encontrar Sinal
   </button>
 
-  <!-- Cassino maior e espaçoso -->
+  <!-- Cassino (visível e grande) -->
   <iframe
     src="https://brbetwin.net/ymqilhbaf/"
     class="w-full mt-6 border-none max-w-screen-md"
@@ -119,11 +119,10 @@
       startTimer();
     }
 
+    // Gera sinal apenas quando clicar
     gerarSinalBtn.addEventListener("click", gerarSinalAleatorio);
 
-    window.addEventListener("DOMContentLoaded", () => {
-      gerarSinalAleatorio();
-    });
+    // ❌ Nada automático aqui!
   </script>
 
 </body>
