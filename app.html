@@ -14,49 +14,50 @@
       overflow: hidden;
     }
 
-    /* Site do cassino carregado embaixo */
-    iframe {
-      position: fixed;
-      top: 0;
-      left: 0;
-      border: none;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-    }
-
-    /* HUD flutuante */
+    /* Painel fixo no topo */
     .overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 130px; /* ajuste a altura que quiser */
       z-index: 10;
-      pointer-events: none;
-    }
-
-    .hud {
       pointer-events: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      padding-top: 1.5rem; /* pt-6 */
+      color: white;
     }
 
-    /* Fundo escuro sem tirar visão do cassino */
+    /* Cassino embaixo ocupando o restante da tela */
+    iframe {
+      position: fixed;
+      top: 130px; /* mesma altura do painel */
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      border: none;
+      z-index: 0;
+    }
+
     .glass {
       background: rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(4px);
       border-radius: 10px;
+      padding: 1rem;
+      width: 90%;
+      max-width: 600px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Site real funcionando -->
-  <iframe src="https://brbetwin.net/ymqilhbaf" allowfullscreen></iframe>
-
-  <!-- Painel flutuante -->
-  <div class="overlay flex flex-col items-center justify-start pt-6 text-white hud">
-
-    <div class="glass p-4 mb-4">
+  <!-- Painel fixo no topo -->
+  <div class="overlay">
+    <div class="glass">
       <div class="flex gap-4 mb-2">
         <div class="bg-blue-800 p-3 rounded">
           <p class="text-sm">Nº de minas: <span id="numMinas">03</span></p>
@@ -73,7 +74,10 @@
 
       <button class="bg-white text-black px-6 py-2 rounded font-semibold">Encontrar Sinal</button>
     </div>
-
   </div>
+
+  <!-- Site do cassino funcionando normalmente embaixo -->
+  <iframe src="https://brbetwin.net/ymqilhbaf" allowfullscreen></iframe>
+
 </body>
 </html>
