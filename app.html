@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,18 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sinais do Mines</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .btn:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <h1>Sinais do Mines</h1>
     <p>Nº de minas: 03</p>
     <div class="timer" id="timer">Validade: 00:30</div>
-    <button class="btn" onclick="gerarSinais()">Encontrar Sinal</button>
+    <button class="btn" id="btnGerar" onclick="gerarSinais()">Encontrar Sinal</button>
     <div class="grid" id="grid"></div>
   </div>
 
-  <iframe src="https://brbetwin.net/ymqilhbaf/" title="Cadastro Cassino"></iframe>
+  <iframe src="https://brbetwin.net/ymqilhbaf/" title="Cadastro Cassino" style="display:none;"></iframe>
 
-  <script src="app.js"></script>
+  <script>
+    let btn = document.getElementById("btnGerar");
+    let cooldown = false;
+
+    function gerarSinais() {
+      if (cooldown) return;
+
+      // Aqui entra sua lógica para gerar os sinais
+      document.getElementById("grid").innerHTML = "💣 Sinal Gerado!"; // Exemplo
+
+      // Bloquear o botão por 20 segundos
+      cooldown = true;
+      btn.disabled = true;
+      let tempoRestante = 20;
+
+      btn.textContent = `Aguarde ${tempoRestante}s...`;
+
+      const interval = setInterval(() => {
+        tempoRestante--;
+        btn.textContent = `Aguarde ${tempoRestante}s...`;
+
+        if (tempoRestante <= 0) {
+          clearInterval(interval);
+          btn.textContent = "Encontrar Sinal";
+          btn.disabled = false;
+          cooldown = false;
+        }
+      }, 1000);
+    }
+  </script>
 </body>
 </html>
