@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,6 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>App de Sinais do Mines</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f0f8ff;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .btn {
+      background-color: #007bff;
+      color: white;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    .screenshots {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .screenshot-box {
+      width: 100px;
+      height: 200px;
+      background-color: #e0e0e0;
+      border: 2px solid #ccc;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Responsivo */
+    @media (max-width: 600px) {
+      .screenshot-box {
+        width: 80px;
+        height: 160px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -15,6 +72,14 @@
     <a href="app.html">
       <button class="btn">Acessar aplicativo do Mines 💣</button>
     </a>
+
+    <div class="screenshots">
+      <div class="screenshot-box">Imagem 1</div>
+      <div class="screenshot-box">Imagem 2</div>
+      <div class="screenshot-box">Imagem 3</div>
+      <div class="screenshot-box">Imagem 4</div>
+      <div class="screenshot-box">Imagem 5</div>
+    </div>
   </div>
 </body>
 </html>
