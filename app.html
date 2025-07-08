@@ -1,32 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>App De Sinal</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Overlay Cassino</title>
   <script defer src="app.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    iframe {
+      position: fixed;
+      top: 0;
+      left: 0;
+      border: none;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; /* não atrapalha clique no cassino */
+    }
+
+    .hud {
+      pointer-events: auto; /* permite clicar só na HUD */
+    }
+  </style>
 </head>
-<body class="bg-blue-600 text-white min-h-screen flex flex-col items-center pt-6">
+<body>
 
-  <!-- Painel com número de minas e timer -->
-  <div class="flex gap-4 mb-4">
-    <div class="bg-blue-800 p-4 rounded">
-      <p class="text-sm">Nº de minas: <span id="numMinas">03</span></p>
+  <!-- Site do cassino real funcionando -->
+  <iframe src="https://brbetwin.net/ymqilhbaf" allowfullscreen></iframe>
+
+  <!-- Painel flutuante sobreposto -->
+  <div class="overlay flex flex-col items-center justify-start pt-8 text-white hud">
+
+    <!-- Timer e minas -->
+    <div class="flex gap-4 mb-4">
+      <div class="bg-blue-800 p-4 rounded shadow">
+        <p class="text-sm">Nº de minas: <span id="numMinas">03</span></p>
+      </div>
+      <div class="bg-blue-800 p-4 rounded shadow">
+        <p class="text-sm">Validade até</p>
+        <p class="text-xl font-bold" id="timer">00:30</p>
+      </div>
     </div>
-    <div class="bg-blue-800 p-4 rounded">
-      <p class="text-sm">Validade até</p>
-      <p class="text-xl font-bold" id="timer">00:30</p>
+
+    <!-- Grade das minas -->
+    <div class="grid grid-cols-5 gap-1 mb-4">
+      <!-- JS vai preencher -->
     </div>
+
+    <!-- Botão -->
+    <button class="bg-white text-black px-6 py-2 rounded shadow font-semibold">Encontrar Sinal</button>
+
   </div>
-
-  <!-- Grade do campo minado -->
-  <div class="grid grid-cols-5 gap-1 mb-4">
-    <!-- Quadrados gerados pelo JS -->
-  </div>
-
-  <!-- Botão para gerar sinal -->
-  <button class="bg-white text-black px-6 py-2 rounded shadow font-semibold">Encontrar Sinal</button>
-
 </body>
 </html>
