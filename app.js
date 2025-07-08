@@ -1,51 +1,28 @@
-const gridElement = document.getElementById("grid");
-const timerEl = document.getElementById("timer");
-const btnGerar = document.getElementById("btnGerar");
+// Timer regressivo (00:30)
+let seconds = 30;
+const timerElement = document.getElementById("timer");
+const countdown = setInterval(() => {
+  seconds--;
+  const mins = String(Math.floor(seconds / 60)).padStart(2, '0');
+  const secs = String(seconds % 60).padStart(2, '0');
+  timerElement.textContent = `${mins}:${secs}`;
 
-let tempo = 30;
-let intervalo;
-let cooldown = false;
+  if (seconds <= 0) clearInterval(countdown);
+}, 1000);
 
-function gerarSinais() {
-  if (cooldown) return;
+// Gerar grid de minas (5x5)
+const grid = document.querySelector(".grid");
+const total = 25;
+const bombas = [7, 12, 23]; // posições com bomba (índices)
 
-  // Início do bloqueio para 20 segundos
-  cooldown = true;
-  let tempoEspera = 20;
-  btnGerar.disabled = true;
-  btnGerar.textContent = `Aguarde ${tempoEspera}s...`;
-
-  const cooldownInterval = setInterval(() => {
-    tempoEspera--;
-    btnGerar.textContent = `Aguarde ${tempoEspera}s...`;
-    if (tempoEspera <= 0) {
-      clearInterval(cooldownInterval);
-      btnGerar.textContent = "Encontrar Sinal";
-      btnGerar.disabled = false;
-      cooldown = false;
-    }
-  }, 1000);
-
-  // Limpar grade e gerar novas bombas
-  gridElement.innerHTML = "";
-  let bombs = new Set();
-  while (bombs.size < 3) {
-    bombs.add(Math.floor(Math.random() * 25));
+for (let i = 0; i < total; i++) {
+  const cell = document.createElement("div");
+  cell.className = "w-10 h-10 rounded flex items-center justify-center";
+  cell.style.backgroundColor = bombas.includes(i) ? "#facc15" : "#111827";
+  if (bombas.includes(i)) {
+    const bomba = document.createElement("span");
+    bomba.textContent = "💣";
+    cell.appendChild(bomba);
   }
-
-  for (let i = 0; i < 25; i++) {
-    const div = document.createElement("div");
-    div.className = "cell";
-    if (bombs.has(i)) div.classList.add("bomb");
-    gridElement.appendChild(div);
-  }
-
-  // Iniciar cronômetro de validade de 30s
-  tempo = 30;
-  clearInterval(intervalo);
-  intervalo = setInterval(() => {
-    tempo--;
-    timerEl.textContent = "Validade: 00:" + (tempo < 10 ? "0" + tempo : tempo);
-    if (tempo === 0) clearInterval(intervalo);
-  }, 1000);
+  grid.appendChild(cell);
 }
