@@ -52,3 +52,27 @@ body {
 .bomb {
   background-color: #e74c3c !important;
 }
+
+/* Imagens maiores */
+.screenshots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.screenshot-box img {
+  width: 220px;
+  height: 440px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 2px solid #ccc;
+}
+
+@media (max-width: 600px) {
+  .screenshot-box img {
+    width: 170px;
+    height: 340px;
+  }
+}
