@@ -6,7 +6,6 @@
   <title>App Sinais</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <style>
-    /* Painel menor */
     #top-panel > div {
       padding: 0.5rem 1rem;
     }
@@ -30,9 +29,9 @@
     }
   </style>
 </head>
-<body class="bg-blue-600 text-white min-h-[180vh] flex flex-col items-center pt-4">
+<body class="bg-blue-600 text-white min-h-[200vh] flex flex-col items-center pt-4">
 
-  <!-- Painel topo menor -->
+  <!-- Painel topo -->
   <div id="top-panel" class="flex gap-3 mb-3 w-full max-w-md justify-center">
     <div class="bg-black rounded flex flex-col items-center justify-center min-w-[80px]">
       <p class="text-sm">Nº de minas:</p>
@@ -44,7 +43,7 @@
     </div>
   </div>
 
-  <!-- Grade de minas -->
+  <!-- Grade -->
   <div id="grid" class="grid grid-cols-5 gap-1 mb-4 max-w-md"></div>
 
   <!-- Botão -->
@@ -52,7 +51,13 @@
     🔍 Encontrar Sinal
   </button>
 
-  <!-- Cassino (visível e grande) -->
+  <!-- Histórico -->
+  <div class="w-full max-w-md mt-4 bg-black bg-opacity-30 rounded p-3">
+    <h2 class="text-white font-semibold mb-2 text-center">📜 Histórico de Sinais</h2>
+    <ul id="historico" class="text-sm text-gray-200 space-y-1 max-h-40 overflow-y-auto"></ul>
+  </div>
+
+  <!-- Cassino incorporado -->
   <iframe
     src="https://brbetwin.net/ymqilhbaf/"
     class="w-full mt-6 border-none max-w-screen-md"
@@ -61,6 +66,7 @@
     allowfullscreen
   ></iframe>
 
+  <!-- Script principal -->
   <script>
     let seconds = 30;
     let countdown;
@@ -69,6 +75,7 @@
     const numMinasElement = document.getElementById("numMinas");
     const grid = document.getElementById("grid");
     const gerarSinalBtn = document.getElementById("gerarSinal");
+    const historicoElement = document.getElementById("historico");
 
     function startTimer() {
       clearInterval(countdown);
@@ -78,7 +85,6 @@
       countdown = setInterval(() => {
         seconds--;
         updateTimerDisplay(seconds);
-
         if (seconds <= 0) clearInterval(countdown);
       }, 1000);
     }
@@ -100,6 +106,11 @@
         bombas.add(Math.floor(Math.random() * total));
       }
 
+      const bombasArray = Array.from(bombas).sort((a, b) => a - b);
+      const item = document.createElement("li");
+      item.textContent = `💣 Bombas em: ${bombasArray.join(", ")}`;
+      historicoElement.prepend(item);
+
       for (let i = 0; i < total; i++) {
         const cell = document.createElement("div");
         cell.className = "rounded flex items-center justify-center text-2xl font-bold";
@@ -119,10 +130,8 @@
       startTimer();
     }
 
-    // Gera sinal apenas quando clicar
+    // ✅ Apenas no clique do botão
     gerarSinalBtn.addEventListener("click", gerarSinalAleatorio);
-
-    // ❌ Nada automático aqui!
   </script>
 
 </body>
