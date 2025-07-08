@@ -1,16 +1,50 @@
-<!DOCTYPE html>  <html lang="pt-BR">  
-<head>  
-  <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1">  
-  <title>Sinais do Mines</title>  
-  <link rel="stylesheet" href="style.css">  
-</head>  
-<body>  
-  <div class="container">  
-    <h1>Sinais do Mines</h1>  
-    <p>Nº de minas: 03</p>  
-    <div class="timer" id="timer">Validade: 00:30</div>  
-    <button class="btn" onclick="gerarSinais()">Encontrar Sinal</button>  
-    <div class="grid" id="grid"></div>  
-  </div>    <iframe src="https://brbetwin.net/ymqilhbaf/" title="Cadastro Cassino"></iframe>    <script src="app.js"></script>  </body>  
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mines - Ondabet Clone</title>
+  <script defer src="app.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-blue-600 text-white min-h-screen flex flex-col items-center pt-6">
+
+  <!-- Painel lateral -->
+  <div class="flex gap-4 mb-4">
+    <div class="bg-black p-4 rounded">
+      <p class="text-sm">Nº de minas: <span id="numMinas">03</span></p>
+    </div>
+    <div class="bg-black p-4 rounded">
+      <p class="text-sm">Validade até</p>
+      <p class="text-xl font-bold" id="timer">00:30</p>
+    </div>
+  </div>
+
+  <!-- Grade de minas -->
+  <div class="grid grid-cols-5 gap-1 mb-4">
+    <!-- 25 quadrados -->
+    <!-- Adicionaremos dinamicamente via JS -->
+  </div>
+
+  <!-- Botão -->
+  <button class="bg-gray-400 text-black px-6 py-2 rounded">Encontrar Sinal</button>
+
+  <!-- Modal de registro -->
+  <div class="bg-gray-900 text-white p-4 rounded mt-8 w-80">
+    <h2 class="text-green-400 text-center mb-4">🟢 Registre sua conta</h2>
+    <input class="w-full p-2 mb-2 rounded bg-gray-800" placeholder="Nome de usuário" type="text">
+    <input class="w-full p-2 mb-2 rounded bg-gray-800" placeholder="Senha" type="password">
+    <div class="h-1 bg-gray-600 w-full rounded mb-2"></div> <!-- Força senha (visual) -->
+    <input class="w-full p-2 mb-2 rounded bg-gray-800" placeholder="Confirme a senha" type="password">
+    <input class="w-full p-2 mb-2 rounded bg-gray-800" placeholder="+55 Número de celular" type="tel">
+    <select class="w-full p-2 mb-2 rounded bg-gray-800">
+      <option>BRL (BRL)</option>
+    </select>
+    <label class="flex items-center text-sm mb-2">
+      <input type="checkbox" class="mr-2"> Tenho 18 anos, li e concordo com o <a href="#" class="text-green-400 underline ml-1">Acordo do Usuário</a>
+    </label>
+    <button class="bg-green-500 w-full py-2 rounded">Registro</button>
+  </div>
+
+</body>
 </html>
