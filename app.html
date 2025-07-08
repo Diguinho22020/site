@@ -1,42 +1,32 @@
-<!-- app.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>App de Sinais</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>App De Sinal</title>
+  <script defer src="app.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-blue-500 text-white font-sans min-h-screen p-4">
+<body class="bg-blue-600 text-white min-h-screen flex flex-col items-center pt-6">
 
-  <div class="max-w-md mx-auto bg-gray-900 p-4 rounded-xl shadow-lg text-center mb-6">
-    <div class="flex justify-between mb-4">
-      <div class="bg-black p-2 rounded-lg">
-        <p class="text-sm">Nº de minas:</p>
-        <p class="text-lg font-bold">03</p>
-      </div>
-      <div class="bg-black p-2 rounded-lg">
-        <p class="text-sm">Validade até</p>
-        <p class="text-lg font-bold" id="timer">00:21</p>
-      </div>
+  <!-- Painel com número de minas e timer -->
+  <div class="flex gap-4 mb-4">
+    <div class="bg-blue-800 p-4 rounded">
+      <p class="text-sm">Nº de minas: <span id="numMinas">03</span></p>
     </div>
-
-    <div class="grid grid-cols-5 gap-2 mb-4">
-      <!-- Grelha estilo Mines -->
-      <div class="w-12 h-12 bg-black rounded"></div>
-      <div class="w-12 h-12 bg-black rounded"></div>
-      <div class="w-12 h-12 bg-yellow-400 rounded flex items-center justify-center">💣</div>
-      <div class="w-12 h-12 bg-black rounded"></div>
-      <div class="w-12 h-12 bg-yellow-400 rounded flex items-center justify-center">💣</div>
-      <!-- ...repita até 25 quadrados se quiser -->
+    <div class="bg-blue-800 p-4 rounded">
+      <p class="text-sm">Validade até</p>
+      <p class="text-xl font-bold" id="timer">00:30</p>
     </div>
-
-    <button class="bg-gray-400 text-black font-bold py-2 px-4 rounded mb-4">
-      Encontrar Sinal
-    </button>
-
-    <iframe src="https://ondabet.site/mines" class="w-full h-[500px] rounded-lg border-2 border-white"></iframe>
   </div>
+
+  <!-- Grade do campo minado -->
+  <div class="grid grid-cols-5 gap-1 mb-4">
+    <!-- Quadrados gerados pelo JS -->
+  </div>
+
+  <!-- Botão para gerar sinal -->
+  <button class="bg-white text-black px-6 py-2 rounded shadow font-semibold">Encontrar Sinal</button>
 
 </body>
 </html>
