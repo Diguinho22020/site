@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mines - Ondabet Clone</title>
+  <title>App Sinais</title>
   <script defer src="app.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
@@ -26,22 +26,33 @@
     <!-- Adicionaremos dinamicamente via JS -->
   </div>
 
-  <!-- Botão -->
-  <button class="bg-gray-400 text-black px-6 py-2 rounded">Encontrar Sinal</button>
+  <!-- Botão azul -->
+  <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition mb-4">
+    Encontrar Sinal
+  </button>
+
+  <!-- Cassino embutido -->
+  <iframe 
+    src="https://brbetwin.net/ymqilhbaf/" 
+    class="w-full max-w-5xl h-[600px] rounded mb-8"
+    frameborder="0" 
+    allowfullscreen>
+  </iframe>
 
   <!-- Modal de registro -->
-  <div class="bg-gray-900 text-white p-4 rounded mt-8 w-80">
+  <div class="bg-gray-900 text-white p-4 rounded mt-4 w-80">
     <h2 class="text-green-400 text-center mb-4">🟢 Registre sua conta</h2>
     <input class="w-full p-2 mb-2 rounded bg-gray-800" placeholder="Nome de usuário" type="text">
     <input class="w-full p-2 mb-2 rounded bg-gray-800" placeholder="Senha" type="password">
-    <div class="h-1 bg-gray-600 w-full rounded mb-2"></div> <!-- Força senha (visual) -->
+    <div class="h-1 bg-gray-600 w-full rounded mb-2"></div>
     <input class="w-full p-2 mb-2 rounded bg-gray-800" placeholder="Confirme a senha" type="password">
     <input class="w-full p-2 mb-2 rounded bg-gray-800" placeholder="+55 Número de celular" type="tel">
     <select class="w-full p-2 mb-2 rounded bg-gray-800">
       <option>BRL (BRL)</option>
     </select>
     <label class="flex items-center text-sm mb-2">
-      <input type="checkbox" class="mr-2"> Tenho 18 anos, li e concordo com o <a href="#" class="text-green-400 underline ml-1">Acordo do Usuário</a>
+      <input type="checkbox" class="mr-2"> Tenho 18 anos, li e concordo com o 
+      <a href="#" class="text-green-400 underline ml-1">Acordo do Usuário</a>
     </label>
     <button class="bg-green-500 w-full py-2 rounded">Registro</button>
   </div>
