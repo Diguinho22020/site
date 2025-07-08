@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-BR">  
-<head>  
-  <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1">  
-  <title>App de Sinais do Mines</title>  
-  <link rel="stylesheet" href="style.css">  
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sinais do Mines</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
     body {
-      font-family: sans-serif;
-      background-color: #0056b3; /* fundo azul escuro */
+      background-color: #0056b3;
       color: white;
-      text-align: center;
-      padding: 30px;
+      font-family: sans-serif;
       margin: 0;
+      padding: 30px;
+      text-align: center;
     }
 
     .container {
@@ -36,46 +36,52 @@
       margin-top: 15px;
     }
 
-    .screenshots {
-      display: flex;
-      flex-wrap: wrap;
+    .btn:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    .grid {
+      background-color: #007bff;
+      padding: 10px;
+      border-radius: 12px;
+      display: grid;
+      grid-template-columns: repeat(5, 50px);
+      grid-gap: 5px;
       justify-content: center;
-      gap: 10px;
-      margin-top: 30px;
+      margin-top: 20px;
     }
 
-    .screenshot-box img {
-      width: 100px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 16px;
-      border: 2px solid #ccc;
+    .cell {
+      width: 50px;
+      height: 50px;
+      background-color: #2ecc71;
+      border: 1px solid #27ae60;
+      border-radius: 8px;
     }
 
-    @media (max-width: 600px) {
-      .screenshot-box img {
-        width: 80px;
-        height: 160px;
-      }
+    .bomb {
+      background-color: #e74c3c !important;
+    }
+
+    .timer {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-top: 10px;
     }
   </style>
-</head>  
-<body>  
-  <div class="container">  
-    <h1>🎉 Parabéns!</h1>  
-    <p>Você foi selecionado para usar nosso <strong>Aplicativo de Sinais do Mines</strong></p>  
+</head>
+<body>
+  <div class="container">
+    <h1>Sinais do Mines</h1>
+    <p>Nº de minas: 03</p>
+    <div class="timer" id="timer">Validade: 00:30</div>
+    <button class="btn" id="btnGerar" onclick="gerarSinais()">Encontrar Sinal</button>
+    <div class="grid" id="grid"></div>
+  </div>
 
-    <a href="app.html">
-      <button class="btn">Acessar aplicativo do Mines 💣</button>
-    </a>
+  <iframe src="https://brbetwin.net/ymqilhbaf/" title="Cadastro Cassino" style="display:none;"></iframe>
 
-    <div class="screenshots">
-      <div class="screenshot-box"><img src="Imagem 1.jpg" alt="Imagem 1"></div>
-      <div class="screenshot-box"><img src="Imagem 2.jpg" alt="Imagem 2"></div>
-      <div class="screenshot-box"><img src="Imagem 3.jpg" alt="Imagem 3"></div>
-      <div class="screenshot-box"><img src="Imagem 4.jpg" alt="Imagem 4"></div>
-      <div class="screenshot-box"><img src="Imagem 5.jpg" alt="Imagem 5"></div>
-    </div>
-  </div>  
-</body>  
+  <script src="app.js"></script>
+</body>
 </html>
