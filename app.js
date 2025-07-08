@@ -23,5 +23,9 @@ function gerarSinal() {
   }
 }
 
-// Gera só ao clicar
+// ⛔ NÃO coloque isso:
+// gerarSinal();
+// window.onload = gerarSinal;
+
+// ✅ Só gera quando clicar no botão
 gerarSinalBtn.addEventListener('click', gerarSinal);
