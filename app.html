@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>App Sinais</title>
-  <script defer src="app.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 </head>
 <body class="bg-blue-600 text-white min-h-screen flex flex-col items-center pt-6">
@@ -21,22 +20,21 @@
   </div>
 
   <!-- Grade de minas -->
-  <div id="grid" class="grid grid-cols-5 gap-1 mb-6">
-    <!-- Quadrados serão gerados via JS -->
-  </div>
+  <div id="grid" class="grid grid-cols-5 gap-1 mb-6"></div>
 
-  <!-- Botão de gerar sinal -->
+  <!-- Botão gerar sinal -->
   <button id="gerarSinal" class="bg-blue-800 text-white text-lg font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-blue-900 transition mb-6">
     🔍 Encontrar Sinal
   </button>
 
-  <!-- Site Cassino em tela cheia abaixo -->
-  <iframe 
-    src="https://brbetwin.net/ymqilhbaf/" 
-    class="w-full h-[100vh] rounded-none border-none"
-    frameborder="0" 
-    allowfullscreen>
-  </iframe>
+  <!-- Cassino embutido -->
+  <iframe
+    src="https://brbetwin.net/ymqilhbaf/"
+    class="w-full h-[120vh] border-none"
+    frameborder="0"
+    allowfullscreen
+  ></iframe>
 
+  <script src="app.js"></script>
 </body>
 </html>
