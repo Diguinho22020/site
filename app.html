@@ -1,83 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Overlay + Cassino</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mines - Sinal</title>
   <script defer src="app.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    /* Painel fixo no topo */
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 130px; /* ajuste a altura que quiser */
-      z-index: 10;
-      pointer-events: auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: start;
-      padding-top: 1.5rem; /* pt-6 */
-      color: white;
-    }
-
-    /* Cassino embaixo ocupando o restante da tela */
-    iframe {
-      position: fixed;
-      top: 130px; /* mesma altura do painel */
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      border: none;
-      z-index: 0;
-    }
-
-    .glass {
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(4px);
-      border-radius: 10px;
-      padding: 1rem;
-      width: 90%;
-      max-width: 600px;
-    }
-  </style>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-blue-600 text-white min-h-screen flex flex-col items-center pt-6">
 
-  <!-- Painel fixo no topo -->
-  <div class="overlay">
-    <div class="glass">
-      <div class="flex gap-4 mb-2">
-        <div class="bg-blue-800 p-3 rounded">
-          <p class="text-sm">Nº de minas: <span id="numMinas">03</span></p>
-        </div>
-        <div class="bg-blue-800 p-3 rounded">
-          <p class="text-sm">Validade até</p>
-          <p class="text-xl font-bold" id="timer">00:30</p>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-5 gap-1 mb-4">
-        <!-- Preenchido via JS -->
-      </div>
-
-      <button class="bg-white text-black px-6 py-2 rounded font-semibold">Encontrar Sinal</button>
+  <!-- Painel com número de minas e timer -->
+  <div class="flex gap-4 mb-4">
+    <div class="bg-blue-800 p-4 rounded">
+      <p class="text-sm">Nº de minas: <span id="numMinas">03</span></p>
+    </div>
+    <div class="bg-blue-800 p-4 rounded">
+      <p class="text-sm">Validade até</p>
+      <p class="text-xl font-bold" id="timer">00:30</p>
     </div>
   </div>
 
-  <!-- Site do cassino funcionando normalmente embaixo -->
-  <iframe src="https://brbetwin.net/ymqilhbaf" allowfullscreen></iframe>
+  <!-- Grade do campo minado -->
+  <div class="grid grid-cols-5 gap-1 mb-4">
+    <!-- Quadrados gerados pelo JS -->
+  </div>
+
+  <!-- Botão para gerar sinal -->
+  <button class="bg-white text-black px-6 py-2 rounded shadow font-semibold">Encontrar Sinal</button>
 
 </body>
 </html>
