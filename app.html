@@ -1,42 +1,67 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" >
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>App Sinais</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    /* Painel menor */
+    #top-panel > div {
+      padding: 0.5rem 1rem; /* menos padding */
+    }
+    #top-panel p {
+      font-size: 0.85rem; /* fonte menor */
+      margin: 0;
+    }
+    #top-panel p#timer {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    #grid > div {
+      width: 3rem !important;
+      height: 3rem !important;
+      font-size: 1.5rem !important;
+    }
+    #gerarSinal {
+      padding: 0.5rem 1.5rem !important;
+      font-size: 1.1rem !important;
+      margin-bottom: 0.5rem !important;
+    }
+  </style>
 </head>
-<body class="bg-blue-600 text-white min-h-[150vh] flex flex-col items-center pt-6">
+<body class="bg-blue-600 text-white min-h-[180vh] flex flex-col items-center pt-4">
 
-  <!-- Painel topo -->
-  <div class="flex gap-4 mb-4">
-    <div class="bg-black p-4 rounded">
-      <p class="text-sm">Nº de minas: <span id="numMinas">03</span></p>
+  <!-- Painel topo menor -->
+  <div id="top-panel" class="flex gap-3 mb-3 w-full max-w-md justify-center">
+    <div class="bg-black rounded flex flex-col items-center justify-center min-w-[80px]">
+      <p class="text-sm">Nº de minas:</p>
+      <p id="numMinas" class="font-bold text-lg">03</p>
     </div>
-    <div class="bg-black p-4 rounded">
+    <div class="bg-black rounded flex flex-col items-center justify-center min-w-[80px]">
       <p class="text-sm">Validade até</p>
-      <p class="text-xl font-bold" id="timer">00:30</p>
+      <p id="timer" class="font-bold text-lg">00:30</p>
     </div>
   </div>
 
-  <!-- Grade de minas -->
-  <div id="grid" class="grid grid-cols-5 gap-1 mb-6"></div>
+  <!-- Grade de minas menor -->
+  <div id="grid" class="grid grid-cols-5 gap-1 mb-4 max-w-md"></div>
 
-  <!-- Botão gerar sinal -->
-  <button id="gerarSinal" class="bg-blue-800 text-white text-lg font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-blue-900 transition mb-6">
+  <!-- Botão menor -->
+  <button id="gerarSinal" class="bg-blue-800 text-white font-bold rounded shadow-lg hover:bg-blue-900 transition">
     🔍 Encontrar Sinal
   </button>
 
-  <!-- Cassino embutido -->
+  <!-- Cassino maior e espaçoso -->
   <iframe
     src="https://brbetwin.net/ymqilhbaf/"
-    class="w-full h-[150vh] border-none"
+    class="w-full mt-6 border-none max-w-screen-md"
+    style="height: 1000px; border-radius: 6px;"
     frameborder="0"
     allowfullscreen
   ></iframe>
 
   <script>
-    // Timer regressivo
     let seconds = 30;
     let countdown;
 
@@ -77,7 +102,9 @@
 
       for (let i = 0; i < total; i++) {
         const cell = document.createElement("div");
-        cell.className = "w-14 h-14 rounded flex items-center justify-center text-2xl font-bold";
+        cell.className = "rounded flex items-center justify-center text-2xl font-bold";
+        cell.style.width = "3rem";
+        cell.style.height = "3rem";
 
         if (bombas.has(i)) {
           cell.style.backgroundColor = "#facc15";
@@ -92,13 +119,12 @@
       startTimer();
     }
 
-    // Evento do botão
     gerarSinalBtn.addEventListener("click", gerarSinalAleatorio);
 
-    // Gera o primeiro sinal ao carregar a página
     window.addEventListener("DOMContentLoaded", () => {
       gerarSinalAleatorio();
     });
   </script>
+
 </body>
 </html>
