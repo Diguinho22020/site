@@ -46,8 +46,8 @@
   <!-- Grade -->
   <div id="grid" class="grid grid-cols-5 gap-1 mb-4 max-w-md"></div>
 
-  <!-- Botão -->
-  <button id="gerarSinal" class="bg-blue-800 text-white font-bold rounded shadow-lg hover:bg-blue-900 transition">
+  <!-- Botão Gerar Sinal -->
+  <button id="gerarSinal" class="bg-blue-800 text-white font-bold rounded shadow-lg hover:bg-blue-900 transition mb-4 px-6 py-2">
     🔍 Encontrar Sinal
   </button>
 
@@ -57,14 +57,23 @@
     <ul id="historico" class="text-sm text-gray-200 space-y-1 max-h-40 overflow-y-auto"></ul>
   </div>
 
-  <!-- Cassino incorporado -->
-  <iframe
-    src="https://icecassino2k5.online"
-    class="w-full mt-6 border-none max-w-screen-md"
-    style="height: 1000px; border-radius: 6px;"
-    frameborder="0"
-    allowfullscreen
-  ></iframe>
+  <!-- Botão Cassino Do Método -->
+  <button
+    id="btnCassino"
+    class="bg-yellow-500 text-black font-bold rounded shadow-lg hover:bg-yellow-600 transition mt-6 px-6 py-2"
+  >
+    🎰 Cassino Do Método
+  </button>
+
+  <!-- Cassino incorporado (inicialmente oculto) -->
+  <div id="iframeContainer" class="hidden w-full max-w-screen-md mt-4" style="height: 1000px; border-radius: 6px; overflow: hidden;">
+    <iframe
+      src="https://icecassino2k5.online"
+      class="w-full h-full border-none"
+      allowfullscreen
+      frameborder="0"
+    ></iframe>
+  </div>
 
   <!-- Script principal -->
   <script>
@@ -130,8 +139,23 @@
       startTimer();
     }
 
-    // ✅ Apenas no clique do botão
     gerarSinalBtn.addEventListener("click", gerarSinalAleatorio);
+
+    // Toggle do iframe cassino
+    const btnCassino = document.getElementById('btnCassino');
+    const iframeContainer = document.getElementById('iframeContainer');
+
+    btnCassino.addEventListener('click', () => {
+      if (iframeContainer.classList.contains('hidden')) {
+        iframeContainer.classList.remove('hidden');
+        btnCassino.textContent = '❌ Fechar Cassino';
+        // Rola a página para o iframe (opcional)
+        iframeContainer.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        iframeContainer.classList.add('hidden');
+        btnCassino.textContent = '🎰 Cassino Do Método';
+      }
+    });
   </script>
 
 </body>
